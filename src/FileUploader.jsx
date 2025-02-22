@@ -3,7 +3,7 @@ import { useState } from "react";
 function FileUploader() {
 
     const [files, setFiles] = useState(null);
-    const [transactions, setTransactions] = useState({
+    const [derivables, setderivables] = useState({
         highestSalesVolumeDay: null,
         highestSalesValueDay: null,
         mostSoldProduct: null,
@@ -98,7 +98,7 @@ function FileUploader() {
                 return avgA > avgB ? a : b;
               })[0];
     
-              setTransactions({
+              setderivables({
                 highestSalesVolumeDay,
                 highestSalesValueDay,
                 mostSoldProduct,
@@ -119,20 +119,20 @@ function FileUploader() {
   
         <div>
           <h2>Metrics</h2>
-          <p>Highest Sales Volume in a Day: {transactions.highestSalesVolumeDay}</p>
-          <p>Highest Sales Value in a Day: {transactions.highestSalesValueDay}</p>
-          <p>Most Sold Product ID by Volume: {transactions.mostSoldProduct}</p>
+          <p>Highest Sales Volume in a Day: {derivables.highestSalesVolumeDay}</p>
+          <p>Highest Sales Value in a Day: {derivables.highestSalesValueDay}</p>
+          <p>Most Sold Product ID by Volume: {derivables.mostSoldProduct}</p>
           <p>
             Highest Sales Staff ID by Month:
             <ul>
-              {Object.entries(transactions.highestSalesStaffByMonth).map(([month, staffId]) => (
+              {Object.entries(derivables.highestSalesStaffByMonth).map(([month, staffId]) => (
                 <li key={month}>
                   Month {month}: Staff ID {staffId}
                 </li>
               ))}
             </ul>
           </p>
-          <p>Highest Hour of the Day by Average Transaction Volume: {transactions.highestHourByVolume}</p>
+          <p>Highest Hour of the Day by Average Transaction Volume: {derivables.highestHourByVolume}</p>
         </div>
       </div>
     );
